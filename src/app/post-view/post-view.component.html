@@ -1,0 +1,37 @@
+<main *ngIf="post" role="main">
+  <article>
+    <header>
+      <!-- <img class="img-fluid mb-2" src="{{post.banner}}" /> -->
+      <h2>
+        {{post.title}}
+      </h2>
+      <time datetime="post.publishedAt" pubdate="true">
+        {{post.publishedAt | date}}
+      </time>
+      <!-- <div *ngIf="post.tags && post.tags.length > 0" class="tags">
+        <pw-tags [tags]="post.tags"></pw-tags>
+      </div> -->
+    </header>
+    <p>{{post.content}}</p>
+    <footer>
+      <div>
+        <!-- If there is a previous link -->
+        <span>
+          <i class="far fa-long-arrow-alt-left fa-sm"></i>
+          <a href="#" title="Previous Post Title">Previous Post Title</a>
+        </span>
+      </div>
+      <div class="next">
+        <!-- If there is a next link -->
+        <a class="next" href="#" title="Next Post Title">Next Post Title</a>
+        <span>
+          <i class="far fa-long-arrow-alt-right fa-sm"></i>
+        </span>
+      </div>
+    </footer>
+  </article>
+    <!-- <div class="col-md-4">
+      <pw-sidebar></pw-sidebar>
+    </div> -->
+</main>
+
