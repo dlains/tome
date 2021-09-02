@@ -14,8 +14,8 @@ if [ $? != 0 ]; then
   tmux new-session -s tome -n console -d
 
   # Create a new window to be the angular server.
-  tmux new-window -n ui -t tome
-  tmux send-keys -t tome "ng serve -o" C-m
+  tmux new-window -n server -t tome
+  # tmux send-keys -t tome "ng serve -o" C-m
 
   # Attach to the session
   tmux select-window -t tome:1
