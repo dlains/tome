@@ -15,7 +15,12 @@ if [ $? != 0 ]; then
 
   # Create a new window to be the angular server.
   tmux new-window -n server -t tome
-  # tmux send-keys -t tome "ng serve -o" C-m
+  tmux send-keys -t tome "rails log:clear" C-m
+  tmux send-keys -t tome "bundle exec rails s -p 3000" C-m
+
+  # Move the server window to the current window and back.
+  tmux bind u join-pane -h -s server
+  tmux bind U break-pane -d -n server
 
   # Attach to the session
   tmux select-window -t tome:1
