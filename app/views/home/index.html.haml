@@ -1,0 +1,17 @@
+%div.collapse#navbarToggleExternalContent
+  %div.bg-dark.p-4
+    %h5.text-white.h4 Collapsed content
+    %span.text-muted Toggleable via the navbar brand.
+%nav.navbar.navbar-dark.bg-dark
+  %div.container-fluid
+    %button.navbar-toggler{type:"button", "data-bs-toggle":"collapse", "data-bs-target":"#navbarToggleExternalContent", "aria-controls":"navbarToggleExternalContent", "aria-expanded":"false", "aria-label":"Toggle navigation"}
+      %span.navbar-toggler-icon
+%main
+  %section.py-5.text-center.container
+    %div.row.py-lg-5
+      %div.col-lg-6.col-md-8.mx-auto
+        %h1.fw-light Album example
+        %p.lead.text-muted Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.
+        %p
+          %a.btn.btn-primary.my-2{href:"#"} Main call to action
+          %a.btn.btn-secondary.my-2{href:"#"} Secondary action
