@@ -10,3 +10,6 @@ Rails.start()
 ActiveStorage.start()
 
 import "controllers"
+
+import "bootstrap"
+import "../stylesheets/application"
