@@ -1,7 +1,6 @@
 # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 Rails.application.routes.draw do
-  root to: "home#index"
-  get "home/index"
+  root to: "posts#index"
 
   # Authentication routes.
   get 'sign_up', to: 'registrations#new'
