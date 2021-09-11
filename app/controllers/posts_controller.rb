@@ -5,7 +5,13 @@ class PostsController < ApplicationController
 
   # GET /posts
   def index
-    # @posts = Post.all
+    if session[:user_id].present?
+      puts "User Found!"
+      @posts = Post.order('published_at DESC').all
+    else
+      puts "No User"
+      @posts = Post.published.order('published_at DESC')
+    end
     # @posts = @posts.order('id DESC').page(params[:page])
   end
 

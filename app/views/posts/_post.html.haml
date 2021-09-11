@@ -1,0 +1,12 @@
+%article.border-bottom.mb-5
+  %header
+    -# - if post.banner.attached?
+    -#   %img.img-fluid.mb-2{src: url_for(post.banner)}
+    %h2
+      %a.text-dark{href: post_path(post)}= post.title
+    - if post.published
+      %time{datetime: post.published_at.iso8601, pubdate: true}
+        = format_date(post.published_at, :dstamp)
+    -# .tags= render post.tags
+  %content
+    = markdown_full(post)

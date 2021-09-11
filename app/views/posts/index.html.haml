@@ -1,0 +1,15 @@
+- title "Posts - David Lains"
+- description "Featured and current articles from my twisted mind."
+.row
+  .col-md-8
+    %h3.pb-3.mb-4.font-italic.border-bottom
+    - if @posts.empty?
+      %h1 Sorry, nothing to show.
+    - else
+      = render @posts
+    -# .d-flex.justify-content-between.align-items-center.mb-5
+    -#   .text-left
+    -#     = link_to_next_page @posts, 'Previous'
+    -#   .text-right
+    -#     = link_to_prev_page @posts, 'Next'
+  = render 'post_sidebar'

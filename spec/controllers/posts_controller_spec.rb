@@ -1,21 +1,32 @@
 require 'rails_helper'
 
 RSpec.describe PostsController, type: :controller do
-  let(:user)     { create(:user) }
-  let(:new_post) { create(:post) }
+  let(:user)             { create(:user) }
+  let(:new_post)         { create(:post) }
+  let(:unpublished_post) { create(:post, published: false) }
 
-  # describe 'GET index' do
-  #   before do
-  #     get :index
-  #   end
-  #
-  #   it_behaves_like 'a successful response'
-  #   it_behaves_like 'a template renderer', 'index'
-  #
-  #   it 'assigns @posts' do
-  #     expect(assigns(:posts)).to eq([new_post])
-  #   end
-  # end
+  describe 'GET index' do
+    before do
+      get :index
+    end
+
+    it_behaves_like 'a successful response'
+    it_behaves_like 'a template renderer', 'index'
+
+    it 'assigns @posts' do
+      expect(assigns(:posts)).to eq([new_post])
+    end
+
+    it 'it gets all posts if a user is signed in' do
+      new_post
+      unpublished_post
+      sign_in user
+
+      get :index
+
+      expect(assigns(:posts).length).to eq(2)
+    end
+  end
 
   describe 'GET show' do
     before do
