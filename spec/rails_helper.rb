@@ -72,3 +72,8 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 end
+
+# Setup an authenticated user
+def sign_in user
+  session[:user_id] = user.id
+end
