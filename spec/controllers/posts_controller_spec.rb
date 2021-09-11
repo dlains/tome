@@ -16,19 +16,19 @@ RSpec.describe PostsController, type: :controller do
   #     expect(assigns(:posts)).to eq([new_post])
   #   end
   # end
-  #
-  # describe 'GET show' do
-  #   before do
-  #     get :show, params: { id: new_post.slug }
-  #   end
-  #
-  #   it_behaves_like 'a successful response'
-  #   it_behaves_like 'a template renderer', 'show'
-  #
-  #   it 'assigns @post' do
-  #     expect(assigns(:post)).to eq(new_post)
-  #   end
-  # end
+
+  describe 'GET show' do
+    before do
+      get :show, params: { id: new_post.slug }
+    end
+
+    it_behaves_like 'a successful response'
+    it_behaves_like 'a template renderer', 'show'
+
+    it 'assigns @post' do
+      expect(assigns(:post)).to eq(new_post)
+    end
+  end
 
   describe 'GET new' do
     before do

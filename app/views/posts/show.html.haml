@@ -1,0 +1,25 @@
+- title "#{@post.title} - David Lains"
+- description "#{@post.summary}"
+%article
+  %header
+    %h1= @post.title
+    %time{datetime: @post.published_at.iso8601, pubdate: true}
+      %span
+        %i.far.fa-calendar
+      Published:
+      = format_date(@post.published_at)
+  %main
+    = markdown_full(@post)
+  %footer
+    .prev
+      - if @prev
+        %span
+          %i.far.fa-long-arrow-alt-left.fa-sm
+        %a{href: post_path(@prev), title: @prev.title}
+          = @prev.title
+    .next
+      - if @next
+        %a.next{href: post_path(@next), title: @next.title}
+          = @next.title
+        %span
+          %i.far.fa-long-arrow-alt-right.fa-sm
