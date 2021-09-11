@@ -11,6 +11,8 @@ class PostsController < ApplicationController
 
   # GET /posts/slug
   def show
+    @prev = @post.previous_article
+    @next = @post.next_article
   end
 
   # GET /posts/new
