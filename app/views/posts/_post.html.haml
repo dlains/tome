@@ -7,6 +7,6 @@
     - if post.published
       %time{datetime: post.published_at.iso8601, pubdate: true}
         = format_date(post.published_at, :dstamp)
-    -# .tags= render post.tags
+    .tags= render post.tags
   %content
     = markdown_full(post)
