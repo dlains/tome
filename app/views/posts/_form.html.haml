@@ -23,9 +23,9 @@
   .form-group
     = f.label :content
     = f.text_area :content, rows: 20, class: 'form-control'
-  -# .form-group
-  -#   = f.label :tag_list
-  -#   = f.text_field :tag_list, value: f.object.tag_list.to_s, class: 'form-control'
+  .form-group
+    = f.label :tag_list
+    = f.text_field :tag_list, value: f.object.tag_list.to_s, class: 'form-control'
   .form-check.mb-3
     = f.check_box :published, class: 'form-check-input'
     = f.label :published, class: 'form-check-label'

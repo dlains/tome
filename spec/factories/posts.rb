@@ -7,5 +7,6 @@ FactoryBot.define do
     content           { Faker::Markdown.random }
     published         { true }
     published_at      { Time.zone.now }
+    tag_list          { 'Coding' }
   end
 end

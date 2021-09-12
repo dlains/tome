@@ -6,19 +6,18 @@ class PostsController < ApplicationController
   # GET /posts
   def index
     if session[:user_id].present?
-      puts "User Found!"
       @posts = Post.order('published_at DESC').all
     else
-      puts "No User"
       @posts = Post.published.order('published_at DESC')
     end
-    # @posts = @posts.order('id DESC').page(params[:page])
+    @tags = ActsAsTaggableOn::Tag.all
   end
 
   # GET /posts/slug
   def show
     @prev = @post.previous_article
     @next = @post.next_article
+    @tags = ActsAsTaggableOn::Tag.all
   end
 
   # GET /posts/new
@@ -68,6 +67,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:user_id, :title, :slug, :summary, :content, :published, :published_at)
+    params.require(:post).permit(:user_id, :title, :slug, :summary, :content, :published, :published_at, :tag_list)
   end
 end
