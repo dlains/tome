@@ -5,12 +5,16 @@
       Etiam porta
       %em sem malesuada magna
       mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.
+    - if session[:user_id]
+      .p-3
+        %h4.font-italic Logout
+        %a{href: logout_path } Logout
     .p-3
       %h4.font-italic Categories
       %ul.list-unstyled.mb-0
         - @tags.each do |tag|
           %li= render tag
-    %div.p-3
+    .p-3
       %h4.font-italic Archive
       %ol.list-unstyled
         %li
