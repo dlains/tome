@@ -116,15 +116,19 @@ RSpec.describe PostsController, type: :controller do
     end
   end
 
-  # describe 'DELETE destroy' do
-  #   it 'should delete a post' do
-  #     delete :destroy, params: { id: new_post.slug }
-  #     expect(Post.count).to eq(0)
-  #   end
-  #
-  #   it 'should redirect to the index page' do
-  #     delete :destroy, params: { id: new_post.slug }
-  #     expect(response).to redirect_to(admin_posts_url)
-  #   end
-  # end
+  describe 'DELETE destroy' do
+    before do
+      sign_in user
+    end
+
+    it 'should delete a post' do
+      delete :destroy, params: { id: new_post.slug }
+      expect(Post.count).to eq(0)
+    end
+
+    it 'should redirect to the index page' do
+      delete :destroy, params: { id: new_post.slug }
+      expect(response).to redirect_to(posts_url)
+    end
+  end
 end
