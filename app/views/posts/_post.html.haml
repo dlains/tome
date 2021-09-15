@@ -9,6 +9,7 @@
         = format_date(post.published_at, :dstamp)
     - if session[:user_id].present?
       %a.btn.btn-primary.btn-sm{href: edit_post_path(post)} Edit
+      = link_to 'Delete', post_path(post), method: :delete, data: { :confirm => 'Are you sure?' }, class: 'btn btn-sm btn-danger'
     .tags= render post.tags
   %content
     = markdown_full(post)

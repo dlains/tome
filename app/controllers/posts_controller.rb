@@ -52,11 +52,8 @@ class PostsController < ApplicationController
 
   # DELETE /posts/slug
   def destroy
-    # @post.destroy
-    # respond_to do |format|
-    #   format.html { redirect_to admin_posts_url, notice: 'Post was successfully destroyed.' }
-    #   format.json { render :show, status: :ok, location: @post }
-    # end
+    @post.destroy
+    redirect_to posts_url, notice: 'Post was successfully destroyed.'
   end
 
   private
