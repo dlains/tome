@@ -19,7 +19,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'haml-rails'                    # Scaffold generator create .haml.
 gem 'sentry-ruby'                   # Online error reporting.
-# gem 'kaminari'                      # For pagination.
+gem 'kaminari'                      # For pagination.
 gem 'redcarpet'                     # For processing Markdown in the Posts.
 gem 'rouge'                         # For code block syntax highlighting.
 gem 'acts-as-taggable-on'           # Tagging system for Posts.

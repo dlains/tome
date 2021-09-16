@@ -6,9 +6,9 @@ class PostsController < ApplicationController
   # GET /posts
   def index
     if session[:user_id].present?
-      @posts = Post.order('published_at DESC').all
+      @posts = Post.order('published_at DESC').page(params[:page]).all
     else
-      @posts = Post.published.order('published_at DESC')
+      @posts = Post.published.order('published_at DESC').page(params[:page])
     end
     @tags = ActsAsTaggableOn::Tag.all
   end
@@ -43,6 +43,10 @@ class PostsController < ApplicationController
 
   # PATCH/PUT /posts/slug
   def update
+    if post_params[:published] && !@post.published?
+      @post.published_at = Time.zone.now
+    end
+
     if @post.update(post_params)
       redirect_to posts_path, notice: 'Post was successfully updated.'
     else
