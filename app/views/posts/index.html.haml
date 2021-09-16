@@ -7,9 +7,9 @@
       %h1 Sorry, nothing to show.
     - else
       = render @posts
-    -# .d-flex.justify-content-between.align-items-center.mb-5
-    -#   .text-left
-    -#     = link_to_next_page @posts, 'Previous'
-    -#   .text-right
-    -#     = link_to_prev_page @posts, 'Next'
+    .d-flex.justify-content-between.align-items-center.mb-5
+      .text-left
+        = link_to_next_page @posts, 'Previous'
+      .text-right
+        = link_to_prev_page @posts, 'Next'
   = render 'post_sidebar'
