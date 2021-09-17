@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   # GET /posts
   def index
     if session[:user_id].present?
-      @posts = Post.order('published_at DESC').page(params[:page]).all
+      @posts = Post.order('id DESC').page(params[:page]).all
     else
       @posts = Post.published.order('published_at DESC').page(params[:page])
     end
