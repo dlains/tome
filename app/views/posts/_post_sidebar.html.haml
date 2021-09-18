@@ -7,6 +7,8 @@
       mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.
     - if session[:user_id]
       .p-3
+        %h4.fon-italic Create Post
+        %a{href: new_post_path } Create
         %h4.font-italic Logout
         %a{href: logout_path } Logout
     .p-3
