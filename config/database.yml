@@ -51,5 +51,3 @@ test:
 production:
   <<: *default
   database: tome
-  username: tome
-  password: <%= ENV['TOME_DATABASE_PASSWORD'] %>
